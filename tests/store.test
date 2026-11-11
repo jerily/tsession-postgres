@@ -1,6 +1,6 @@
 package require tcltest 2
 namespace import ::tcltest::*
-package require tsession-postgres 1.0.0
+package require tsession-postgres 1.0.1
 namespace eval ::storetest {variable serial 0}
 testConstraint backend [info exists ::env(TSESSION_TEST_PG)]
 proc ::storetest::connect {} {
