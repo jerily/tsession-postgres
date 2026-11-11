@@ -1,11 +1,11 @@
 # tsession-postgres
 
-PostgreSQL session persistence for `tsession` 1.1.0. Each store borrows a
+PostgreSQL session persistence for `tsession` 2.0.0. Each store borrows a
 `tpersist` connection and scopes every operation to a tenant. There is no global
 active store. `web-user` selects this package for `PROD`.
 
 ```tcl
-package require tsession-postgres 1.0.0
+package require tsession-postgres 1.0.1
 set db [::tpersist::db_connect -dialect postgresql -database app -host localhost -user app -autobegin 0]
 # Run explicitly before serving requests; create never changes the schema.
 ::tsession::postgres::initdb $db
@@ -43,7 +43,7 @@ fields must be encrypted by the caller. `web-user` stores token MACs as IDs and
 encrypts pending MFA secrets. No migration or old middleware adapter is included.
 
 Install with CMake (`-DBUILD_TESTING=OFF` for installation), or add the checkout
-to `TCLLIBPATH`. Requires Tcl 8.6.14+, tpersist 0.1.2+, tsession 1.1.0+, and
+to `TCLLIBPATH`. Requires Tcl 8.6.14+, tpersist 0.1.2+, tsession 2.0.0+, and
 TDBC's PostgreSQL driver 1.1.8+.
 
 ```sh
